@@ -1,20 +1,14 @@
-# Use a base image with Python 3.9
+# Use a base image with Python 3.13
 FROM python:3.13-slim
 
-# Set the working directory to /app
 WORKDIR /app
 
-# Copy the requirements file
-COPY requirements.txt .
+COPY requirements.txt ./
 
-# Install the dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
+	&& pip install --no-cache-dir -r requirements.txt \
+	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Copy the application code
 COPY . .
 
-# Expose the port that the Streamlit app will use
-EXPOSE 8501
-
-# Run the command to start the Streamlit app when the container is launched
 CMD ["streamlit", "run", "1_🏠_home.py"]
