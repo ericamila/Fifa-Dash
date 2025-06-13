@@ -9,4 +9,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["streamlit", "run", "1_🏠_home.py"]
+CMD ["streamlit", "run", "1_🏠_home.py", "--server.headless=true", "--server.port=8501", "--server.enableCORS=false"]
