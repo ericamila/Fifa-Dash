@@ -1,9 +1,12 @@
 import streamlit as st
+from data import load_data
 
 st.set_page_config(
     page_title="Player Stats 🧑‍🦰",
     layout="wide",
 )
+if "data" not in st.session_state:
+    load_data()
 
 df_data = st.session_state["data"]
 
