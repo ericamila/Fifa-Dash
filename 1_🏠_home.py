@@ -21,9 +21,8 @@ if "data" not in st.session_state:
 
 st.markdown("# FIFA World Cup 2023⚽  \n### Official dataset")
 
-btn = st.button("Acesse os dados no Kaggle")
-if btn:
-    webbrowser.open_new_tab("https://www.kaggle.com/datasets/kevwesophia/fifa23-official-datasetclean-data")
+url = "https://www.kaggle.com/datasets/kevwesophia/fifa23-official-datasetclean-data"
+st.markdown(f'<a href="{url}" target="_blank"><button class="st-emotion-cache-13lcgu3 eacrzsi2">Acesse os dados no Kaggle</button></a>', unsafe_allow_html=True)
 
 st.markdown(
     """
