@@ -2,7 +2,7 @@ import streamlit as st
 from datetime import datetime
 from pandas import read_csv
 
-@st.cache_data()
+# @st.cache_data()
 def load_data():
     df_data = read_csv("datasets/CLEAN_FIFA23_official_data.csv", index_col=0)
     df_data = df_data[df_data["Contract Valid Until"] >= datetime.today().year]
